@@ -1,6 +1,6 @@
-# Calculator Ultra
+# TI Programs
 
-Welcome to Calculator Ultra — your one-stop destination for high-quality programs for the TI-84 calculator!
+Welcome to TI Programs — your one-stop destination for high-quality programs for the TI-84 calculator!
 
 ## 🚀 Features
 - 🆓 Free downloads of math programs for all calculators capable of running TI-BASIC in the form of .8xp files
@@ -21,4 +21,4 @@ We’re building features to help you get more out of your calculator — easily
 ---
 
 ### 🔗 Website  
-[calculator-ultra.github.io](https://calculator-ultra.github.io)
+[tiprograms.github.io](https://tiprograms.github.io)
