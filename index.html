@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TI Programs - Speed Up Your Math</title>
+    <title>TI Programs - Math Programs for All TI-84 Calculators</title>
     
     <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-NMV81XP2NL"></script>
@@ -23,7 +23,7 @@
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #7289da 0%, #8671c4 100%);
             min-height: 100vh;
             color: #333;
         }
@@ -106,17 +106,6 @@
             font-size: 1.4rem;
             font-weight: 600;
             color: #2d3748;
-            margin-bottom: 0.5rem;
-        }
-
-        .program-code {
-            font-family: 'Courier New', monospace;
-            background: #f7fafc;
-            padding: 0.3rem 0.6rem;
-            border-radius: 6px;
-            font-size: 0.9rem;
-            color: #4a5568;
-            display: inline-block;
             margin-bottom: 0.8rem;
         }
 
@@ -128,7 +117,9 @@
 
         .program-actions {
             display: flex;
-            justify-content: flex-end;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 0.5rem;
         }
 
         .download-btn {
@@ -161,6 +152,48 @@
             height: 20px;
         }
 
+        .file-name {
+            font-family: 'Courier New', monospace;
+            font-size: 0.85rem;
+            color: #718096;
+            text-align: right;
+        }
+
+        .contact-footer {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            border-radius: 16px;
+            padding: 2rem;
+            text-align: center;
+            color: white;
+            margin-top: 3rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .contact-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 0.8rem;
+        }
+
+        .contact-message {
+            opacity: 0.9;
+            margin-bottom: 1rem;
+            line-height: 1.5;
+        }
+
+        .email-link {
+            color: #90cdf4;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .email-link:hover {
+            color: #63b3ed;
+            text-decoration: underline;
+        }
+
         @media (max-width: 768px) {
             .header h1 {
                 font-size: 2rem;
@@ -171,7 +204,11 @@
             }
             
             .program-actions {
-                justify-content: center;
+                align-items: center;
+            }
+            
+            .file-name {
+                text-align: center;
             }
         }
     </style>
@@ -180,11 +217,19 @@
     <div class="container">
         <div class="header">
             <h1>TI Programs</h1>
-            <p>Professional math programs for your TI-84 Plus CE calculator</p>
+            <p>Simple and easy to use math programs to upgrade your TI-84 calculator</p>
         </div>
 
         <div class="programs-grid" id="programsGrid">
             <!-- Programs will be dynamically loaded here -->
+        </div>
+
+        <div class="contact-footer">
+            <div class="contact-title">Questions or Feedback?</div>
+            <div class="contact-message">
+                Have questions about the programs or need assistance? Feel free to reach out!
+            </div>
+            <a href="mailto:calculator.ultra@gmail.com" class="email-link">calculator.ultra@gmail.com</a>
         </div>
     </div>
 
@@ -259,7 +304,6 @@
                     <div class="program-header">
                         <div class="program-info">
                             <div class="program-name">${program.name}</div>
-                            <div class="program-code">${program.code}</div>
                         </div>
                     </div>
                     <div class="program-description">${program.description}</div>
@@ -270,6 +314,7 @@
                             </svg>
                             Download
                         </button>
+                        <div class="file-name">${program.code}</div>
                     </div>
                 </div>
             `).join('');
