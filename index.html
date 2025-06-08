@@ -7,7 +7,7 @@
     <meta name="description" content="Download free TI-84 calculator programs for all branches of math. Speed up your calculations with out free collection of simple and easy to use programs.">
     <meta name="keywords" content="TI-84 programs, TI-BASIC, TI-BASIC programs, calculator programs, TI-84, TI-84 Plus prorgams, TI-84 Plus, TI-84 Plus CE, TI-84 Plus CE Programs, math programs, quadratic solver, compound interest, sequence calculator, algebra programs">
     <meta name="author" content="Calculator Ultra">
-    <link rel="stylesheet" href="index.css">    
+    <link rel="stylesheet" href="index.css">
 
     <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-NMV81XP2NL"></script>
@@ -27,8 +27,28 @@
             <a href="instructions.html" class="instructions-link">📋 Installation Instructions</a>
         </div>
 
-        <div class="programs-grid" id="programsGrid">
-            <!-- Programs will be dynamically loaded here -->
+        <!-- Geometry Section -->
+        <div class="category-section">
+            <h2 class="category-title">📐 Geometry</h2>
+            <div class="programs-grid" id="geometryGrid">
+                <!-- Geometry programs will be loaded here -->
+            </div>
+        </div>
+
+        <!-- Algebra Section -->
+        <div class="category-section">
+            <h2 class="category-title">📊 Algebra</h2>
+            <div class="programs-grid" id="algebraGrid">
+                <!-- Algebra programs will be loaded here -->
+            </div>
+        </div>
+
+        <!-- Other Section -->
+        <div class="category-section">
+            <h2 class="category-title">🧮 Other</h2>
+            <div class="programs-grid" id="otherGrid">
+                <!-- Other programs will be loaded here -->
+            </div>
         </div>
 
         <div class="footer">
@@ -44,51 +64,105 @@
     </div>
 
     <script>
-        // Program data
-        const programs = [
-            {
-                id: 'comp',
-                name: 'COMP - Compound Interest Calculator',
-                code: 'COMP.8xp',
-                description: 'Calculate compound interest with various compounding periods. Perfect for finance and algebra courses.'
-            },
-            {
-                id: 'quad',
-                name: 'QUAD - Quadratic Solver',
-                code: 'QUAD.8xp',
-                description: 'Solve quadratic equations and display roots, vertex, and discriminant information.'
-            },
-            {
-                id: 'sequ',
-                name: 'SEQU - Sequence Analyzer',
-                code: 'SEQU.8xp',
-                description: 'Determines if a sequence is arithmetic, geometric, or neither, and calculates the difference/ratio.'
-            },
-            {
-                id: 'arith',
-                name: 'ARITH - Arithmetic Sequence Formula',
-                code: 'ARITH.8xp',
-                description: 'Writes explicit and recursive arithmetic formulas using the first term (a₁) and common difference (d).'
-            },
-            {
-                id: 'geom',
-                name: 'GEOM - Geometric Sequence Formula',
-                code: 'GEOM.8xp',
-                description: 'Writes explicit and recursive geometric formulas using the first term (a₁) and common ratio (r).'
-            }
-        ];
+        // Program data organized by category
+        const programs = {
+            geometry: [
+                {
+                    id: 'circle',
+                    name: 'CIRCLE - Circle Equation Finder',
+                    code: 'CIRCLE.8xp',
+                    description: 'Returns the equation of a circle in standard form given the endpoints of a diameter. Simply enter the X and Y of the first endpoint, then the second and the equation will be displayed.'
+                },
+                {
+                    id: 'triarea',
+                    name: 'TRIAREA - Area of Triangle',
+                    code: 'TRIAREA.8xp',
+                    description: 'Determines the area of any triangle given its three points. Enter the X and Y of all three points and the area of the triangle will be displayed.'
+                },
+                {
+                    id: 'pointr',
+                    name: 'POINTR - Point Reflection',
+                    code: 'POINTR.8xp',
+                    description: 'Returns the image of a point after a point reflection over a different point. X and Y are the coordinates of the preimage, A and B are the coordinates of the point of reflection.'
+                },
+                {
+                    id: 'midpt',
+                    name: 'MIDPT - Midpoint Finder',
+                    code: 'MIDPT.8xp',
+                    description: "Returns the coordniates of the midpoint between two points. Simply enter the X and Y of the first point, and then second."
+                },
+                {
+                    id: 'distance',
+                    name: 'DISTANCE - Distance Between Two Points',
+                    code: 'DISTANCE.8xp',
+                    description: "Uses the distance formula to return the distance between two points. Simply enter the X and Y o the first point, and then the second. IMPORTANT: Due to the limited abilities of TI-84 calculators, distances will always be displayed in decimal form, never simplest radical form. However, this program is still very useful for checking if you have calculated the distance correctly."
+                },
+                {
+                    id: 'dilate',
+                    name: 'DILATE - Dilation Calculator',
+                    code: 'DILATE.8xp',
+                    description: "Determines the image of any point after a dilation from a different point. Enter the coordinatres of the preimage (X, Y), then the scale factor (K), and finally the center of dilation (A, B)."
+                },
+                {
+                    id: 'part',
+                    name: 'PART - Partitioning Point Locator',
+                    code: 'PART.8xp',
+                    description: "Returns the coordniates of the point that partitions a segment into a given ratio using the segement's endpoints. M and N are the two numbers of the partition ratio, X and Y are the coordinates of the first endpoint and Z and W are those of the second."
+                }
+            ],
+            algebra: [
+                {
+                    id: 'quad',
+                    name: 'QUAD - Quadratic Solver',
+                    code: 'QUAD.8xp',
+                    description: 'Uses the quadratic formula to determine the roots of a quadratic equation. Simply enter the A, B and C values of the equation. IMPORTANT: All roots will be displayed in decimal, not radical form. So, if you want to check your answers that are in radical form, convert them to decimal form, run this program, and the numbers should match.'
+                },
+                {
+                    id: 'sequence',
+                    name: 'SEQUENCE - Sequence Analyzer',
+                    code: 'SEQUENCE.8xp',
+                    description: 'Determines if a sequence is arithmetic, geometric, or neither, and calculates the difference/ratio. As instructed by the program, simply enter any three consecutive terms in the sequence and it will be analyzed.'
+                },
+                {
+                    id: 'arith',
+                    name: 'ARITH - Arithmetic Sequence Formula',
+                    code: 'ARITH.8xp',
+                    description: 'Writes explicit and recursive arithmetic formulas using the first term (A) and common difference (D). TIP: Use with the SEQUENCE program to solve sequence problems quickly'
+                },
+                {
+                    id: 'geom',
+                    name: 'GEOM - Geometric Sequence Formula',
+                    code: 'GEOM.8xp',
+                    description: 'Writes explicit and recursive geometric formulas using the first term (A) and common ratio (R). TIP: Use with the SEQUENCE program to solve sequence problems quickly'
+                },
+                {
+                    id: 'compound',
+                    name: 'COMPUND - Compound Interest Calculator',
+                    code: 'COMPOUND.8xp',
+                    description: 'Calculates the total compund interest given the principal (P), rate (R), and time (T). IMPORTANT: Enter the rate in percent form. For rates of growth, leave the rate positive; for rates of decay, enter the rate as negative.'
+                }
+            ],
+            other: [
+                {
+                    id: 'hack',
+                    name: 'HACK - Fake Hacking Animation',
+                    code: 'HACK.8xp',
+                    description: 'When run, fills the screen with 0s and 1s, making it appear that you are hacking into your calculator. This programs is completely harmless and simply prints to the screen. To stop the program, hit the ON button.'
+                }
+            ]
+        };
 
         async function downloadProgram(programId, filename) {
             // Track download event in Google Analytics
             gtag('event', 'download', {
                 'file_name': filename,
                 'program_id': programId,
-                'program_name': programs.find(p => p.id === programId).name
+                'program_name': findProgramName(programId)
             });
             
-            // Create download link (replace with your actual .8xp files)
+            // Create download link
             const link = document.createElement('a');
-            link.href = `./programs/${filename}`; // Update this path to where your .8xp files are stored
+            link.href = `./programs/${filename}`;
             link.download = filename;
             link.style.display = 'none';
             document.body.appendChild(link);
@@ -107,9 +181,16 @@
             }, 2000);
         }
 
-        function renderPrograms() {
-            const grid = document.getElementById('programsGrid');
-            grid.innerHTML = programs.map(program => `
+        function findProgramName(programId) {
+            for (const category of Object.values(programs)) {
+                const program = category.find(p => p.id === programId);
+                if (program) return program.name;
+            }
+            return '';
+        }
+
+        function renderProgramCard(program) {
+            return `
                 <div class="program-card">
                     <div class="program-header">
                         <div class="program-info">
@@ -127,7 +208,33 @@
                         <div class="file-name">${program.code}</div>
                     </div>
                 </div>
-            `).join('');
+            `;
+        }
+
+        function renderPrograms() {
+            // Render Geometry programs
+            const geometryGrid = document.getElementById('geometryGrid');
+            if (programs.geometry.length > 0) {
+                geometryGrid.innerHTML = programs.geometry.map(renderProgramCard).join('');
+            } else {
+                geometryGrid.innerHTML = '<p style="color: white; text-align: center; opacity: 0.8;">Coming soon!</p>';
+            }
+
+            // Render Algebra programs
+            const algebraGrid = document.getElementById('algebraGrid');
+            if (programs.algebra.length > 0) {
+                algebraGrid.innerHTML = programs.algebra.map(renderProgramCard).join('');
+            } else {
+                algebraGrid.innerHTML = '<p style="color: white; text-align: center; opacity: 0.8;">Coming soon!</p>';
+            }
+
+            // Render Other programs
+            const otherGrid = document.getElementById('otherGrid');
+            if (programs.other.length > 0) {
+                otherGrid.innerHTML = programs.other.map(renderProgramCard).join('');
+            } else {
+                otherGrid.innerHTML = '<p style="color: white; text-align: center; opacity: 0.8;">Coming soon!</p>';
+            }
         }
 
         // Initialize the page
